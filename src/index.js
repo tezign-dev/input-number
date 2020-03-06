@@ -366,7 +366,7 @@ export default class InputNumber extends React.Component {
     return val;
   }
 
-  setValue(v, callback) {
+  setValue(v, type, callback) {
     // trigger onChange
     const { precision } = this.props;
     const newValue = this.isNotCompleteNumber(parseFloat(v, 10)) ? null : parseFloat(v, 10);
@@ -388,7 +388,7 @@ export default class InputNumber extends React.Component {
       }, callback);
     }
     if (changed) {
-      this.props.onChange(newValue);
+      this.props.onChange(newValue, type);
     }
 
     return newValue;
@@ -621,7 +621,7 @@ export default class InputNumber extends React.Component {
     } else if (val < props.min) {
       val = props.min;
     }
-    this.setValue(val);
+    this.setValue(val, type);
     this.setState({
       focused: true,
     });
