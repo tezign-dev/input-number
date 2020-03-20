@@ -24,6 +24,7 @@ node_modules
 dist
 assets/**/*.css
 build
+npm-shrinkwrap.json
 coverage
 /ios/
 /android/
